@@ -195,7 +195,7 @@ public class MainActivity extends FragmentActivity implements
 				finish();
 			}
 
-		} 
+		}
 		return true;
 	}
 
