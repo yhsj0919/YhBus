@@ -7,23 +7,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.MeasureSpec;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.PopupWindow.OnDismissListener;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -63,6 +57,8 @@ public class Bus_View extends Fragment {
 	private ArrayList<Bus_View_Site> allSite;
 
 	private boolean isSave = false;
+	
+	private boolean isCanGetSp = false;
 
 	public Bus_View(ArrayList<String> bus_ids) {
 		this.bus_ids = bus_ids;
@@ -125,7 +121,9 @@ public class Bus_View extends Fragment {
 			// 如果返回码是0则成功返回信息，否则失败，用toast提示
 			if (code == 0) {
 				// 保存信息
-				Config.saveBusViewSite(context, bus_id, body);
+				if (isSave) {
+					Config.saveBusViewSite(context, bus_id, body);
+				}
 
 				// 在这里解析json然后显示信息
 				JSONObject result = returnInfo.getJSONObject("result");
@@ -167,7 +165,7 @@ public class Bus_View extends Fragment {
 
 		String info = Config.getBusViewSite(context, bus_ids.get(0));
 
-		if (info != null) {
+		if (info != null&&isCanGetSp) {
 			analyzeInfo(bus_id, info);
 			isSave = false;
 		} else {

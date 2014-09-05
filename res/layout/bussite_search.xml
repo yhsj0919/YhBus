@@ -9,15 +9,40 @@
         android:background="#faa42a"
         android:orientation="horizontal" >
 
-        <EditText
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@drawable/ed_search_bg"
-            android:hint="请输入公交站点" >
-        </EditText>
+            android:layout_height="match_parent" >
+
+            <EditText
+                android:id="@+id/bussite_ed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/ed_search_bg"
+                android:hint="请输入公交站点" >
+            </EditText>
+
+            <ProgressBar
+                android:id="@+id/bussite_loading"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="35dp"
+                android:indeterminateDrawable="@drawable/progressbar"
+                android:visibility="gone" />
+        </FrameLayout>
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/bussite_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:padding="8dp"
+        android:scrollbars="none" >
+    </ListView>
 
 </LinearLayout>

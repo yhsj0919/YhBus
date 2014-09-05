@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 public class Config {
 
 	public static final String BUS_LINE_SEARCH_PATH = "http://60.216.101.229/server-ue2/rest/buslines/simple/370100/";
+	
+	public static final String BUS_SITE_SEARCH_PATH = "http://60.216.101.229/server-ue2/rest/busStations/simple/370100/";
 
 	public static final String BUS_VIEW_GET_SITE_PATH = "http://60.216.101.229/server-ue2/rest/buslines/370100/";
 

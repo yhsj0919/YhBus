@@ -12,13 +12,14 @@ import android.widget.TextView;
 
 import com.yh.bus.R;
 import com.yh.bus.domain.Bus_Line_Info;
+import com.yh.bus.domain.Bus_Site_Info;
 
 /**
  * User: LOVE Date: 14-08-30 Time: 下午1:33 Mail: 1130402124@qq.com
  *
  */
-public class Busline_list_Adapter extends BaseAdapter {
-	private ArrayList<Bus_Line_Info> bus_Line_Infos = new ArrayList<Bus_Line_Info>();
+public class BusSite_list_Adapter extends BaseAdapter {
+	private ArrayList<Bus_Site_Info> bus_site_Infos = new ArrayList<Bus_Site_Info>();
 	private Context context;
 
 	/**
@@ -26,7 +27,7 @@ public class Busline_list_Adapter extends BaseAdapter {
 	 * 
 	 * @param context
 	 */
-	public Busline_list_Adapter(Context context) {
+	public BusSite_list_Adapter(Context context) {
 		this.context = context;
 	}
 
@@ -36,10 +37,10 @@ public class Busline_list_Adapter extends BaseAdapter {
 	 * @param context
 	 * @param bus_Line_Infos
 	 */
-	public Busline_list_Adapter(Context context,
-			ArrayList<Bus_Line_Info> bus_Line_Infos) {
+	public BusSite_list_Adapter(Context context,
+			ArrayList<Bus_Site_Info> bus_site_Infos) {
 		this.context = context;
-		this.bus_Line_Infos = bus_Line_Infos;
+		this.bus_site_Infos = bus_site_Infos;
 	}
 
 	/**
@@ -47,8 +48,8 @@ public class Busline_list_Adapter extends BaseAdapter {
 	 * 
 	 * @param data
 	 */
-	public void addAll(ArrayList<Bus_Line_Info> data) {
-		bus_Line_Infos.addAll(data);
+	public void addAll(ArrayList<Bus_Site_Info> data) {
+		bus_site_Infos.addAll(data);
 		notifyDataSetChanged();
 	}
 
@@ -56,18 +57,18 @@ public class Busline_list_Adapter extends BaseAdapter {
 	 * 清空adapter信息
 	 */
 	public void clear() {
-		bus_Line_Infos.clear();
+		bus_site_Infos.clear();
 		notifyDataSetChanged();
 	}
 
 	@Override
 	public int getCount() {
-		return bus_Line_Infos.size();
+		return bus_site_Infos.size();
 	}
 
 	@Override
-	public Bus_Line_Info getItem(int position) {
-		return bus_Line_Infos.get(position);
+	public Bus_Site_Info getItem(int position) {
+		return bus_site_Infos.get(position);
 	}
 
 	@Override
@@ -78,14 +79,14 @@ public class Busline_list_Adapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
-		final Bus_Line_Info bus_Line_Info = bus_Line_Infos.get(position);
+		final Bus_Site_Info bus_site_Info = bus_site_Infos.get(position);
 
 		if (convertView == null) {
 			convertView = LayoutInflater.from(getContext()).inflate(
-					R.layout.search_line_list_item, null);
+					R.layout.search_site_list_item, null);
 			convertView
 					.setTag(new ListCell((TextView) convertView
-							.findViewById(R.id.list_item_busname),
+							.findViewById(R.id.list_item_bussite),
 							(TextView) convertView
 									.findViewById(R.id.list_item_busline),
 							(ImageView) convertView
@@ -94,10 +95,11 @@ public class Busline_list_Adapter extends BaseAdapter {
 
 		ListCell lc = (ListCell) convertView.getTag();
 
-		lc.getName().setText(bus_Line_Info.getLineName());
+		lc.getSite().setText(bus_site_Info.getStationName());
 		lc.getLine().setText(
-				bus_Line_Info.getStartStationName() + " --> "
-						+ bus_Line_Info.getEndStationName());
+				bus_site_Info.getLineName() + "  "
+						+ bus_site_Info.getStartStationName() + " --> "
+						+ bus_site_Info.getEndStationName());
 		if (position % 2 == 0) {
 			lc.getBusImg().setImageResource(R.drawable.list_bus_icon_0);
 		}
@@ -121,19 +123,19 @@ public class Busline_list_Adapter extends BaseAdapter {
 	 *
 	 */
 	private static class ListCell {
-		private TextView name;
+		private TextView site;
 		private TextView line;
 		private ImageView busImg;
 
-		public ListCell(TextView name, TextView line, ImageView busImg) {
+		public ListCell(TextView site, TextView line, ImageView busImg) {
 			super();
-			this.name = name;
+			this.site = site;
 			this.line = line;
 			this.busImg = busImg;
 		}
 
-		public TextView getName() {
-			return name;
+		public TextView getSite() {
+			return site;
 		}
 
 		public TextView getLine() {

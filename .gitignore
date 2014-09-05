@@ -11,6 +11,7 @@
 # Generated files
 bin/
 gen/
+.settings/
 
 # Gradle files
 .gradle/
@@ -34,7 +35,8 @@ proguard/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*

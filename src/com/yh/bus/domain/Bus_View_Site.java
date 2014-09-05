@@ -11,9 +11,9 @@ public class Bus_View_Site {
 	private String id;
 	/** 本地id */
 	private String area;
-	/** 终点站 */
+	/** 经度*/
 	private String lat;
-	/** 线路名称 */
+	/** 纬度 */
 	private String lng;
 	/**  */
 	private String state;

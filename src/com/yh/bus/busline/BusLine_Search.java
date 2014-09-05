@@ -7,7 +7,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -46,6 +45,7 @@ public class BusLine_Search extends Fragment {
 	private MainActivity parentActivity;
 
 	private ResideMenu resideMenu;
+
 	private TextView ed_busline;
 	private ProgressBar loading;
 	private Handler handler;
@@ -59,6 +59,8 @@ public class BusLine_Search extends Fragment {
 	private String temp_Bus_Id = "";
 
 	private boolean isSave = false;
+
+	private boolean isCanGetSp = false;
 
 	private ArrayList<Bus_Line_Info> allLine;
 
@@ -107,9 +109,6 @@ public class BusLine_Search extends Fragment {
 	 * @param body
 	 */
 	public void analyzeInfo(String body) {
-
-		// 关闭进度条
-		loading.setVisibility(View.GONE);
 		// 解析json，判断是否正确返回了结果
 		try {
 
@@ -173,6 +172,8 @@ public class BusLine_Search extends Fragment {
 					@Override
 					public void onSuccess(int statusCode, Header[] headers,
 							byte[] responseBody) {
+						loading.setVisibility(View.GONE);
+
 						temp_Bus_Id = ed_busline.getText().toString();
 
 						String body = new String(responseBody);
@@ -280,9 +281,10 @@ public class BusLine_Search extends Fragment {
 				// 通过线程延时
 				String temp = Config.getBusLineSearchInfo(context, ed_busline
 						.getText().toString());
-				if (temp != null) {
+				if (temp != null && isCanGetSp) {
 					analyzeInfo(temp);
 					temp_Bus_Id = "";
+					isSave = false;
 				} else {
 					handler.sendMessageDelayed(handler.obtainMessage(
 							MESSAGE_TEXT_CHANGED, ed_busline.getText()
@@ -323,7 +325,9 @@ public class BusLine_Search extends Fragment {
 
 	}
 
-	/**控件得到坐标
+	/**
+	 * 控件得到坐标
+	 * 
 	 * @param v
 	 */
 	public void getLocation(View v) {

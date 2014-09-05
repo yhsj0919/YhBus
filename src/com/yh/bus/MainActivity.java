@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.special.ResideMenu.ResideMenu;
@@ -46,12 +47,12 @@ public class MainActivity extends FragmentActivity implements
 		title = (TextView) findViewById(R.id.title);
 
 		mContext = this;
-		setUpMenu();
+		init();
 		changeFragment(busLine_Search);
 		title.setText("线路查询");
 	}
 
-	private void setUpMenu() {
+	private void init() {
 
 		resideMenu = new ResideMenu(this);
 		resideMenu.setBackground(R.drawable.menu_background);
@@ -60,10 +61,8 @@ public class MainActivity extends FragmentActivity implements
 
 		busLine_Search = new BusLine_Search();
 		busSite_Search = new BusSite_Search();
-		// resideMenu.setMenuListener(menuListener);
-		// valid scale factor is between 0.0f and 1.0f. leftmenu'width is
-		// 150dip.
-		// 设置窗口打开的比例
+
+		// 设置窗口打开的比例between 0.0f and 1.0f
 		resideMenu.setScaleValue(0.6f);
 
 		// create menu items;
@@ -179,11 +178,17 @@ public class MainActivity extends FragmentActivity implements
 		this.title.setText(title);
 	}
 
+	/**
+	 * 改变界面为线路列表
+	 * 
+	 * @param bus_ids
+	 */
 	public void chengBusView(ArrayList<String> bus_ids) {
 		changeFragment(new Bus_View(bus_ids));
 		isBusView = true;
 	}
 
+	/** 返回键事件 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -197,6 +202,12 @@ public class MainActivity extends FragmentActivity implements
 
 		}
 		return true;
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+
 	}
 
 }
