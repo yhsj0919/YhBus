@@ -1,4 +1,4 @@
-package com.yh.yhbus.domain;
+package com.yh.bus.domain;
 
 /**
  * 线路站点返回的对象

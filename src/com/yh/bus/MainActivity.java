@@ -1,4 +1,4 @@
-package com.yh.yhbus;
+package com.yh.bus;
 
 import java.util.ArrayList;
 
@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuItem;
-import com.yh.yhbus.busline.BusLine_Search;
-import com.yh.yhbus.bussite.BusSite_Search;
-import com.yh.yhbus.busview.Bus_View;
+import com.yh.bus.busline.BusLine_Search;
+import com.yh.bus.bussite.BusSite_Search;
+import com.yh.bus.busview.Bus_View;
 
 /**
  * User: LOVE Date: 14-08-30 Time: 下午1:33 Mail: 1130402124@qq.com

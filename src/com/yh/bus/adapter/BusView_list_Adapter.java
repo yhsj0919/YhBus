@@ -1,4 +1,4 @@
-package com.yh.yhbus.adapter;
+package com.yh.bus.adapter;
 
 import java.util.ArrayList;
 
@@ -18,9 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.PopupWindow.OnDismissListener;
 
-import com.yh.yhbus.R;
-import com.yh.yhbus.domain.Bus_Line_Info;
-import com.yh.yhbus.domain.Bus_View_Site;
+import com.yh.bus.R;
+import com.yh.bus.domain.Bus_Line_Info;
+import com.yh.bus.domain.Bus_View_Site;
 
 /**
  * User: LOVE Date: 14-08-30 Time: 下午1:33 Mail: 1130402124@qq.com

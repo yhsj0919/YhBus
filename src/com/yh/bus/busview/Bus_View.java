@@ -1,4 +1,4 @@
-package com.yh.yhbus.busview;
+package com.yh.bus.busview;
 
 import java.util.ArrayList;
 
@@ -28,13 +28,13 @@ import android.widget.PopupWindow.OnDismissListener;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.special.ResideMenu.ResideMenu;
-import com.yh.yhbus.Config;
-import com.yh.yhbus.MainActivity;
-import com.yh.yhbus.R;
-import com.yh.yhbus.adapter.BusView_list_Adapter;
-import com.yh.yhbus.domain.Bus_View_Site;
-import com.yh.yhbus.json.Bus_View_Site_Json;
-import com.yh.yhbus.tools.Tools;
+import com.yh.bus.Config;
+import com.yh.bus.MainActivity;
+import com.yh.bus.R;
+import com.yh.bus.adapter.BusView_list_Adapter;
+import com.yh.bus.domain.Bus_View_Site;
+import com.yh.bus.json.Bus_View_Site_Json;
+import com.yh.bus.tools.Tools;
 
 /**
  * User: LOVE Date: 14-08-30 Time: 下午1:33 Mail: 1130402124@qq.com

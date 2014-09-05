@@ -1,4 +1,4 @@
-package com.yh.yhbus;
+package com.yh.bus;
 
 import android.content.Context;
 import android.content.SharedPreferences;

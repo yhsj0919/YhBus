@@ -1,4 +1,4 @@
-package com.yh.yhbus.tools;
+package com.yh.bus.tools;
 
 import android.text.format.Time;
 

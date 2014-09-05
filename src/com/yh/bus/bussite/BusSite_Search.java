@@ -1,4 +1,4 @@
-package com.yh.yhbus.bussite;
+package com.yh.bus.bussite;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.special.ResideMenu.ResideMenu;
-import com.yh.yhbus.MainActivity;
-import com.yh.yhbus.R;
+import com.yh.bus.MainActivity;
+import com.yh.bus.R;
 
 /**
  * User: LOVE Date: 14-08-30 Time: 下午1:33 Mail: 1130402124@qq.com

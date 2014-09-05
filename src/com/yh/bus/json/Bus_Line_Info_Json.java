@@ -1,4 +1,4 @@
-package com.yh.yhbus.json;
+package com.yh.bus.json;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.yh.yhbus.domain.Bus_Line_Info;
+import com.yh.bus.domain.Bus_Line_Info;
 
 /**
  * User: LOVE Date: 14-08-30 Time: 下午1:33 Mail: 1130402124@qq.com
